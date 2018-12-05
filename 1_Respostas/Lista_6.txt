@@ -1,0 +1,53 @@
+1. Como se utiliza o comando ps para:
+	(a) Mostrar todos os processos rodando na máquina?
+		ps -A
+		ps -e
+
+	(b) Mostrar os processos de um usuário?
+		ps -u nome_do_usuario
+
+	(c) Ordenar todos os processos de acordo com o uso da CPU?
+		ps --sort=-pcpu
+
+	(d) Mostrar a quanto tempo cada processo está rodando?
+		ps -A -o etime= "$$"
+2. De onde vem o nome fork()?
+	O nome "fork" indica que houve uma "bifurcação" na execução do processo quando a função foi chamada
+	fazendo com que dois processos passem a ser exeutados depois da chamada
+
+3. Quais são as vantagens e desvantagens em utilizar:
+
+	(a) system()?
+		É uma função simples, porém tem maiores chances de falhas de execução pois depende muito do sistema
+
+	(b) fork() e exec()?
+		fork(): permite gerar uma cópia do projeto atual que rodará independentemente do pai, ou seja os valores
+		        atualizados em um processo não refletem no outro, mas isto pode rapidamente ocupar grande parte 
+			da memória disponível, caso usado indiscriminadamente
+		exec(): É uma maneira de chamar um novo processo, porém o atual necessáriamente é encerrado
+
+4. É possível utilizar o exec() sem executar o fork() antes?
+	Sim, mas o processo atual será interrompido
+
+5. Quais são as características básicas das seguintes funções:
+
+	(a) execp()?
+		Aceita que a procura do novo processo a ser executado esteja no endereço atual,
+		sem o p, deveria ser passado o endereço completo
+
+	(b) execv()?
+		Aceita que a lista de argumentos do novo programa seja nula
+
+	(c) exece()?
+		Aceita argumento adicional	
+	
+	(d) execvp()?
+		Aceita que a procura do novo processo a ser executado esteja no endereço atual,
+		sem o p, deveria ser passado o endereço completo e que que a lista de argumentos
+		do novo programa seja nula
+
+	(e) execve()?
+		Aceita que a lista de argumentos do novo programa seja nula ou argumento adicional
+
+	(f) execle()?
+		Aceita argumento adicional e o mecanismo var args em linguagem c
